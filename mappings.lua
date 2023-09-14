@@ -9,7 +9,6 @@ M.disabled = {
 
 M.general = {
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["Y"] = {"yy", "Match vim's line yank"},
 
     ["<cr>"] = {"<cmd> nohlsearch<cr>", "Clear the search buffer when hitting return"},
