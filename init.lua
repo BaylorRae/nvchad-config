@@ -1,5 +1,8 @@
 vim.g.mapleader = ","
 
+-- Seriously, guys. It's not like :W is bound to anything anyway.
+vim.cmd("command! W :w")
+
 -- Restore cursor position
 -- https://github.com/garybernhardt/dotfiles/blob/eed3bbab874f15ddbaaf0341fac1923c12b30b5b/.vimrc#L163-L167
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
