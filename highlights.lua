@@ -9,6 +9,12 @@ M.override = {
   Comment = {
     italic = true,
   },
+  htmlArg = {
+    italic = true,
+  },
+  Type = {
+    italic = true,
+  },
 }
 
 ---@type HLTable

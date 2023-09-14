@@ -1,41 +1,30 @@
--- local autocmd = vim.api.nvim_create_autocmd
-
--- Auto resize panes when resizing nvim window
--- autocmd("VimResized", {
---   pattern = "*",
---   command = "tabdo wincmd =",
--- })
 vim.g.mapleader = ","
 
-vim.keymap.set('n', '<leader>t', '<cmd>Telescope find_files<cr>')
-vim.keymap.set('n', '<leader>gc', '<cmd>Telescope find_files search_dirs={"app/controllers"}<cr>')
-vim.keymap.set('n', '<leader>gm', '<cmd>Telescope find_files search_dirs={"app/models"}<cr>')
-vim.keymap.set('n', '<leader>gv', '<cmd>Telescope find_files search_dirs={"app/views"}<cr>')
+-- Restore cursor position
+-- https://github.com/garybernhardt/dotfiles/blob/eed3bbab874f15ddbaaf0341fac1923c12b30b5b/.vimrc#L163-L167
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+    pattern = { "*" },
+    callback = function()
+        vim.api.nvim_exec('silent! normal! g`"zv', false)
+    end,
+})
 
-vim.keymap.set('n', 'Y', 'yy')
+-- Separate system clipboard with neovim
+vim.opt.clipboard = ""
 
--- Move around splits with <c-hjkl>
-vim.keymap.set('n', '<c-j>', '<c-w>j')
-vim.keymap.set('n', '<c-k>', '<c-w>k')
-vim.keymap.set('n', '<c-h>', '<c-w>h')
-vim.keymap.set('n', '<c-l>', '<c-w>l')
+-- Add breathing room around commands
+vim.opt.cmdheight = 2
+vim.opt.laststatus = 2
 
--- Quickly insert hash rocket
-vim.keymap.set('i', '<c-L>', '<space>=><space>')
+-- Match traditional vim placement of splits
+vim.opt.splitbelow = false
+vim.opt.splitright = false
 
--- Better tab navigation
-vim.keymap.set('n', 'th', '<cmd>tabprev<cr>')
-vim.keymap.set('n', 'tl', '<cmd>tabnext<cr>')
-vim.keymap.set('n', 'tn', '<cmd>tabnew<cr>')
+-- Always use block cursor
+vim.opt.guicursor = "n-v-c-i:block"
 
-vim.cmd('hi htmlArg gui=italic')
-vim.cmd('hi Comment gui=italic')
-vim.cmd('hi Type    gui=italic')
-vim.cmd('hi htmlArg cterm=italic')
-vim.cmd('hi Comment cterm=italic')
-vim.cmd('hi Type    cterm=italic')
-
-
+-- Add standardrb linter
+-- https://github.com/standardrb/standard/wiki/IDE:-neovim
 vim.opt.signcolumn = "yes" -- otherwise it bounces in and out, not strictly needed though
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "ruby",
@@ -47,26 +36,3 @@ vim.api.nvim_create_autocmd("FileType", {
     }
   end,
 })
-
--- Restore cursor position
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-    pattern = { "*" },
-    callback = function()
-        vim.api.nvim_exec('silent! normal! g`"zv', false)
-    end,
-})
-
--- Lua API
-vim.keymap.set("n", "<leader>a", "<cmd>lua require('rspec.integrated').run_spec_file()<cr>", { silent = true, noremap = true })
-
-vim.opt.clipboard = ""
-
-vim.opt.cmdheight = 2
-vim.opt.laststatus = 2
-
-vim.keymap.set("n", "<leader>gr", "<cmd>topleft split config/routes.rb<cr>")
-
-vim.opt.splitbelow = false
-vim.opt.splitright = false
-
-vim.opt.guicursor = "n-v-c-i:block"
