@@ -9,11 +9,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     end,
 })
 
--- Separate system clipboard with neovim
+-- Separate system clipboard from neovim
 vim.opt.clipboard = ""
 
 -- Add breathing room around commands
 vim.opt.cmdheight = 2
+
+-- Show status bar for all windows
 vim.opt.laststatus = 2
 
 -- Match traditional vim placement of splits
