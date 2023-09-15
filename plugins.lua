@@ -61,7 +61,8 @@ local plugins = {
   },
 
   {
-    "andymass/vim-matchup"
+    "andymass/vim-matchup",
+    lazy = false
   },
 
   {

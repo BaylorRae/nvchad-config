@@ -12,6 +12,10 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "ruby"
+  },
+  matchup = {
+    enable = true
   },
   indent = {
     enable = true,

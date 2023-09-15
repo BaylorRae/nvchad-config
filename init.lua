@@ -41,3 +41,6 @@ vim.api.nvim_create_autocmd("FileType", {
     }
   end,
 })
+
+-- show match within window
+vim.g.matchup_matchparen_offscreen = {["method"] = "popup"}
