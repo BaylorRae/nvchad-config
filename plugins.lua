@@ -69,6 +69,16 @@ local plugins = {
     "melopilosyan/rspec-integrated.nvim"
   },
 
+  {
+    "windwp/nvim-autopairs",
+    enabled = false
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    enabled = false
+  }
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

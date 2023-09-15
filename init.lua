@@ -44,3 +44,14 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- show match within window
 vim.g.matchup_matchparen_offscreen = {["method"] = "popup"}
+
+-- Indent if we're at the beginning of a line. Else, do completion.
+vim.keymap.set("i", "<tab>", function()
+  local col = vim.api.nvim_win_get_cursor(0)[2]
+  if vim.api.nvim_get_current_line():sub(col, col):match("[a-zA-Z0-9_$]") then
+    vim.api.nvim_input("<c-p>")
+  else
+    vim.api.nvim_input("<c-tab>")
+  end
+end)
+vim.keymap.set("i", "<s-tab>", "<c-n>")
