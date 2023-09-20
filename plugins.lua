@@ -9,12 +9,6 @@ local plugins = {
     config = function()
       -- require "nvchad_ui"
       vim.opt.statusline = "%<%f (%{&ft})%m%=(%l,%c)%-19([%P]%)"
-
-      -- active
-      vim.cmd('hi StatusLine guibg=#1c2026 guifg=white')
-
-      -- background
-      vim.cmd('hi StatusLineNC guibg=#1c2026 guifg=lightgrey gui=NONE')
     end
   },
 

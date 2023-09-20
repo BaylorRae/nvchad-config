@@ -12,6 +12,10 @@ M.override = {
   htmlArg = {
     italic = true,
   },
+  StatusLine = {
+    fg = "white",
+    bg = "#1c2026"
+  },
   Type = {
     italic = true,
   },
@@ -20,6 +24,10 @@ M.override = {
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  StatusLineNC = {
+    fg = "lightgrey",
+    bg = "#1c2026"
+  },
 }
 
 return M
