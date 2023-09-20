@@ -20,6 +20,21 @@ M.general = {
     ["[d"] = {"<cmd>lua vim.diagnostic.goto_prev { float = { border = \"rounded\" } }<cr>", "Jump to previous diagnostic"},
     ["]d"] = {"<cmd>lua vim.diagnostic.goto_next { float = { border = \"rounded\" } }<cr>", "Jump to next diagnostic"},
   },
+
+  i = {
+    ["<tab>"] = {
+      function()
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        if vim.api.nvim_get_current_line():sub(col, col):match("[a-zA-Z0-9_$]") then
+          vim.api.nvim_input("<c-p>")
+        else
+          vim.api.nvim_input("<c-tab>")
+        end
+      end,
+      "Autocomplete or insert tab"
+    },
+    ["<s-tab>"] = {"<c-n>"}
+  }
 }
 
 M.rails = {
